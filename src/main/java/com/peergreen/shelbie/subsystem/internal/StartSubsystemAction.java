@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal.nav;
+package com.peergreen.shelbie.subsystem.internal;
 
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
@@ -21,26 +21,40 @@ import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.HandlerDeclaration;
 import org.apache.felix.service.command.CommandSession;
+import org.fusesource.jansi.Ansi;
 import org.osgi.service.subsystem.Subsystem;
 
 /**
  * List the Subsystems.
  */
 @Component
-@Command(name = "cd",
+@Command(name = "start-subsystem",
          scope = "subsystem",
-         description = "Move into a given Subsystem")
+         description = "Start a given Subsystem.")
 @HandlerDeclaration("<sh:command xmlns:sh='org.ow2.shelbie'/>")
-public class CdAction implements Action {
+public class StartSubsystemAction implements Action {
 
     @Argument(name = "subsystem",
               required = true,
-              description = "Target Subsystem")
+              description = "Subsystem to be started")
     private Subsystem subsystem;
 
     public Object execute(final CommandSession session) throws Exception {
 
-        session.put("subsystem.context", subsystem.getBundleContext());
+        String name = String.format("%d - %s/%s [%s]",
+                subsystem.getSubsystemId(),
+                subsystem.getSymbolicName(),
+                subsystem.getVersion(),
+                subsystem.getType());
+        subsystem.start();
+
+        Ansi buffer = Ansi.ansi();
+
+        buffer.a("Started Subsystem: ");
+        buffer.a(Ansi.Attribute.INTENSITY_BOLD);
+        buffer.a(name);
+        buffer.a(Ansi.Attribute.INTENSITY_BOLD_OFF);
+        System.out.println(buffer.toString());
 
         return null;
     }

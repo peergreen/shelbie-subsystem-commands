@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal.converter;
+package com.peergreen.shelbie.subsystem.internal.converter;
 
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Instantiate;

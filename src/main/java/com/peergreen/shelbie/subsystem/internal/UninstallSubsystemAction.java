@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal;
+package com.peergreen.shelbie.subsystem.internal;
 
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
@@ -28,15 +28,15 @@ import org.osgi.service.subsystem.Subsystem;
  * List the Subsystems.
  */
 @Component
-@Command(name = "stop-subsystem",
+@Command(name = "uninstall-subsystem",
          scope = "subsystem",
-         description = "Stop a given Subsystem.")
+         description = "Uninstall a given Subsystem.")
 @HandlerDeclaration("<sh:command xmlns:sh='org.ow2.shelbie'/>")
-public class StopSubsystemAction implements Action {
+public class UninstallSubsystemAction implements Action {
 
     @Argument(name = "subsystem",
               required = true,
-              description = "Subsystem to be stopped")
+              description = "Subsystem to be uninstalled")
     private Subsystem subsystem;
 
     public Object execute(final CommandSession session) throws Exception {
@@ -46,11 +46,11 @@ public class StopSubsystemAction implements Action {
                 subsystem.getSymbolicName(),
                 subsystem.getVersion(),
                 subsystem.getType());
-        subsystem.stop();
+        subsystem.uninstall();
 
         Ansi buffer = Ansi.ansi();
 
-        buffer.a("Stopped Subsystem: ");
+        buffer.a("Uninstalled Subsystem: ");
         buffer.a(Ansi.Attribute.INTENSITY_BOLD);
         buffer.a(name);
         buffer.a(Ansi.Attribute.INTENSITY_BOLD_OFF);

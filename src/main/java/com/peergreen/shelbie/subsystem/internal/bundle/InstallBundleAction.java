@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal;
+package com.peergreen.shelbie.subsystem.internal.bundle;
 
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
@@ -23,60 +23,60 @@ import org.apache.felix.ipojo.annotations.HandlerDeclaration;
 import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.service.command.CommandSession;
 import org.fusesource.jansi.Ansi;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
 import org.osgi.service.subsystem.Subsystem;
 
 /**
- * List the Subsystems.
+ * Created with IntelliJ IDEA.
+ * User: guillaume
+ * Date: 21/01/13
+ * Time: 15:46
+ * To change this template use File | Settings | File Templates.
  */
 @Component
-@Command(name = "install-subsystem",
-         scope = "subsystem",
-         description = "Display Subsystem as a tree.")
+@Command(name = "install-bundle",
+        scope = "constituent",
+        description = "Install a Bundle as a Subsystem constituent.")
 @HandlerDeclaration("<sh:command xmlns:sh='org.ow2.shelbie'/>")
-public class InstallSubsystemAction implements Action {
+public class InstallBundleAction implements Action {
 
     @Requires(filter = "(subsystem.id=0)")
     private Subsystem rootSubsystem;
 
     @Argument(name = "to-be-installed",
-              index = 0,
-              required = true,
-              description = "URL of the Subsystem to be installed")
-    private String url;
-
-    @Argument(name = "parent-subsystem",
-              index = 1,
-              description = "Subsystem to be used as parent (optional), root Subsystem is used by default")
-    private Subsystem subsystem;
+            required = true,
+            description = "URL of the Subsystem to be installed")
+    private String location;
 
     public Object execute(final CommandSession session) throws Exception {
 
-        Subsystem base = selectBaseSubsystem();
+        BundleContext bundleContext = (BundleContext) session.get("subsystem.context");
+        if (bundleContext == null) {
+            bundleContext = rootSubsystem.getBundleContext();
+            //session.put("subsystem.context", bundleContext);
+        }
 
-        Subsystem child = base.install(url);
+        System.out.print(String.format(
+                "Bundle agent: %s%n",
+                bundleContext.getBundle().getSymbolicName()
+        ));
 
-        String name = String.format("%d - %s/%s [%s]",
-                child.getSubsystemId(),
-                child.getSymbolicName(),
-                child.getVersion(),
-                child.getType());
+        Bundle bundle = bundleContext.installBundle(location);
+        String name = String.format("%d - %s/%s [osgi.bundle]",
+                bundle.getBundleId(),
+                bundle.getSymbolicName(),
+                bundle.getVersion());
 
         Ansi buffer = Ansi.ansi();
 
-        buffer.a("Subsystem ID: ");
+        buffer.a("Installed Bundle: ");
         buffer.a(Ansi.Attribute.INTENSITY_BOLD);
         buffer.a(name);
         buffer.a(Ansi.Attribute.INTENSITY_BOLD_OFF);
         // Print subsystems
         System.out.println(buffer.toString());
         return null;
-    }
-
-    private Subsystem selectBaseSubsystem() {
-        if (subsystem == null) {
-            return rootSubsystem;
-        }
-        return subsystem;
     }
 
 }

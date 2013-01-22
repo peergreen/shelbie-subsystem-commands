@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal.bundle;
+package com.peergreen.shelbie.subsystem.internal.bundle;
 
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
@@ -35,19 +35,19 @@ import org.osgi.service.subsystem.Subsystem;
  * To change this template use File | Settings | File Templates.
  */
 @Component
-@Command(name = "install-bundle",
+@Command(name = "uninstall-bundle",
         scope = "constituent",
-        description = "Install a Bundle as a Subsystem constituent.")
+        description = "Uninstall a Bundle constituent of the current Subsystem")
 @HandlerDeclaration("<sh:command xmlns:sh='org.ow2.shelbie'/>")
-public class InstallBundleAction implements Action {
+public class UninstallBundleAction implements Action {
 
     @Requires(filter = "(subsystem.id=0)")
     private Subsystem rootSubsystem;
 
-    @Argument(name = "to-be-installed",
+    @Argument(name = "bundle",
             required = true,
-            description = "URL of the Subsystem to be installed")
-    private String location;
+            description = "Bundle identifier")
+    private Long bundleId;
 
     public Object execute(final CommandSession session) throws Exception {
 
@@ -57,26 +57,38 @@ public class InstallBundleAction implements Action {
             //session.put("subsystem.context", bundleContext);
         }
 
-        System.out.print(String.format(
-                "Bundle agent: %s%n",
-                bundleContext.getBundle().getSymbolicName()
-        ));
-
-        Bundle bundle = bundleContext.installBundle(location);
+        Bundle bundle = bundleContext.getBundle(bundleId);
+        if (bundle == null) {
+            throw new Exception(String.format(
+                    "Bundle %d is not visible from region %s",
+                    bundleId,
+                    region(bundleContext)
+            ));
+        }
         String name = String.format("%d - %s/%s [osgi.bundle]",
                 bundle.getBundleId(),
                 bundle.getSymbolicName(),
                 bundle.getVersion());
 
+        bundle.uninstall();
+
         Ansi buffer = Ansi.ansi();
 
-        buffer.a("Installed Bundle: ");
+        buffer.a("Uninstalled Bundle: ");
         buffer.a(Ansi.Attribute.INTENSITY_BOLD);
         buffer.a(name);
         buffer.a(Ansi.Attribute.INTENSITY_BOLD_OFF);
         // Print subsystems
         System.out.println(buffer.toString());
         return null;
+    }
+
+    private String region(BundleContext bundleContext) {
+        String name = bundleContext.getBundle().getSymbolicName();
+        if (name.startsWith("org.osgi.service.subsystem.region.context.")) {
+            return name.substring("org.osgi.service.subsystem.region.context.".length());
+        }
+        return name;
     }
 
 }

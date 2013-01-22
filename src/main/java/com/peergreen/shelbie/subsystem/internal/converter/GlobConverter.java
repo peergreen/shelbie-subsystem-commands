@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal.converter;
+package com.peergreen.shelbie.subsystem.internal.converter;
 
-import com.peergreen.platform.commands.subsystem.internal.Glob;
+import com.peergreen.shelbie.subsystem.internal.Glob;
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Instantiate;
 import org.apache.felix.ipojo.annotations.Provides;
@@ -35,7 +35,7 @@ import org.apache.felix.service.command.Converter;
 public class GlobConverter implements Converter {
 
     @ServiceProperty(name = Converter.CONVERTER_CLASSES,
-            value = "com.peergreen.platform.commands.subsystem.internal.Glob")
+            value = "com.peergreen.shelbie.subsystem.internal.Glob")
     private String supportedClasses;
 
     public Object convert(Class<?> desiredType, Object in) throws Exception {

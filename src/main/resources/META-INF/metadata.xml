@@ -18,61 +18,61 @@
        xsi:schemaLocation="org.apache.felix.ipojo http://felix.apache.org/ipojo/schemas/1.6.0/core.xsd">
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.ListSubsystemsAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.ListSubsystemsAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.HeadersSubsystemsAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.HeadersSubsystemsAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.InfoSubsystemAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.InfoSubsystemAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.TreeSubsystemsAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.TreeSubsystemsAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.InstallSubsystemAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.NullCompleter" />
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.InstallSubsystemAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.NullCompleter" />
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.UninstallSubsystemAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.UninstallSubsystemAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.StartSubsystemAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.StartSubsystemAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.StopSubsystemAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.StopSubsystemAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.nav.CdAction">
-    <completer component="com.peergreen.platform.commands.subsystem.internal.completer.SubsystemCompleter" />
+                    action="com.peergreen.shelbie.subsystem.internal.nav.CdAction">
+    <completer component="com.peergreen.shelbie.subsystem.internal.completer.SubsystemCompleter" />
   </command-instance>
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.bundle.InstallBundleAction" />
+                    action="com.peergreen.shelbie.subsystem.internal.bundle.InstallBundleAction" />
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.bundle.StartBundleAction" />
+                    action="com.peergreen.shelbie.subsystem.internal.bundle.StartBundleAction" />
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.bundle.StopBundleAction" />
+                    action="com.peergreen.shelbie.subsystem.internal.bundle.StopBundleAction" />
 
   <command-instance xmlns="org.ow2.shelbie"
-                    action="com.peergreen.platform.commands.subsystem.internal.bundle.UninstallBundleAction" />
+                    action="com.peergreen.shelbie.subsystem.internal.bundle.UninstallBundleAction" />
 
 </ipojo>

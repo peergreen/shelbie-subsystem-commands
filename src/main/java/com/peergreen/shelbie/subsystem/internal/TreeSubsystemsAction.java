@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal;
+package com.peergreen.shelbie.subsystem.internal;
 
 import com.peergreen.tasks.tree.Node;
 import com.peergreen.tasks.tree.NodeAdapter;

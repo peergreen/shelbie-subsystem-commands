@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.peergreen.platform.commands.subsystem.internal.completer;
+package com.peergreen.shelbie.subsystem.internal.completer;
 
 import jline.console.completer.Completer;
 import jline.console.completer.StringsCompleter;
