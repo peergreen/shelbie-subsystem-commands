@@ -1,0 +1,2 @@
+Private-Package com.peergreen.tasks.tree, \
+                com.peergreen.platform.commands.subsystem.internal.*
