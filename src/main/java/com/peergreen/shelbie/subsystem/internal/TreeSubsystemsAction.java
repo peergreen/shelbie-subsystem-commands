@@ -15,9 +15,9 @@
 
 package com.peergreen.shelbie.subsystem.internal;
 
-import com.peergreen.tasks.tree.Node;
-import com.peergreen.tasks.tree.NodeAdapter;
-import com.peergreen.tasks.tree.NodeVisitor;
+import com.peergreen.tree.Node;
+import com.peergreen.tree.NodeAdapter;
+import com.peergreen.tree.NodeVisitor;
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;

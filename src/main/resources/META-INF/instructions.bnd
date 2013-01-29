@@ -13,5 +13,5 @@
 # limitations under the License.
 #
 
-Private-Package com.peergreen.tasks.tree, \
+Private-Package com.peergreen.tree, \
                 com.peergreen.shelbie.subsystem.internal.*
