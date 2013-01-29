@@ -29,6 +29,12 @@
 
   <name>Peergreen Subsystem Commands</name>
 
+  <scm>
+    <connection>scm:git:https://forge.peergreen.com/git/git/shelbie/subsystem-commands.git</connection>
+    <developerConnection>scm:git:https://forge.peergreen.com/git/git/shelbie/subsystem-commands.git</developerConnection>
+    <url>https://forge.peergreen.com/git/summary/?r=shelbie/subsystem-commands.git</url>
+  </scm>
+
   <dependencies>
     <dependency>
       <groupId>org.osgi</groupId>
