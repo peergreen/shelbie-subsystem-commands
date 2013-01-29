@@ -15,6 +15,8 @@
 
 package com.peergreen.shelbie.subsystem.internal;
 
+import java.util.List;
+
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -28,8 +30,6 @@ import org.osgi.framework.Version;
 import org.osgi.resource.Capability;
 import org.osgi.resource.Resource;
 import org.osgi.service.subsystem.Subsystem;
-
-import java.util.List;
 
 /**
  * List the Subsystems.

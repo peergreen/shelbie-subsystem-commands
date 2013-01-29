@@ -15,12 +15,13 @@
 
 package com.peergreen.shelbie.subsystem.internal.converter;
 
-import com.peergreen.shelbie.subsystem.internal.Glob;
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Instantiate;
 import org.apache.felix.ipojo.annotations.Provides;
 import org.apache.felix.ipojo.annotations.ServiceProperty;
 import org.apache.felix.service.command.Converter;
+
+import com.peergreen.shelbie.subsystem.internal.Glob;
 
 /**
  * Created with IntelliJ IDEA.

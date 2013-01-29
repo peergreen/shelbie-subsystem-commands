@@ -15,6 +15,13 @@
 
 package com.peergreen.shelbie.subsystem.internal;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -25,13 +32,6 @@ import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.service.command.CommandSession;
 import org.fusesource.jansi.Ansi;
 import org.osgi.service.subsystem.Subsystem;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Pattern;
 
 /**
  * List the Subsystems.

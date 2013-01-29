@@ -15,16 +15,17 @@
 
 package com.peergreen.shelbie.subsystem.internal.completer;
 
-import jline.console.completer.Completer;
-import jline.console.completer.StringsCompleter;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Provides;
 import org.apache.felix.ipojo.annotations.Requires;
 import org.osgi.service.subsystem.Subsystem;
 
-import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import jline.console.completer.Completer;
+import jline.console.completer.StringsCompleter;
 
 /**
  * Created by IntelliJ IDEA.

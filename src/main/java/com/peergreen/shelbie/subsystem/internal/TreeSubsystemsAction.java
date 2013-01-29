@@ -15,9 +15,6 @@
 
 package com.peergreen.shelbie.subsystem.internal;
 
-import com.peergreen.tree.Node;
-import com.peergreen.tree.NodeAdapter;
-import com.peergreen.tree.NodeVisitor;
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -27,6 +24,10 @@ import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.service.command.CommandSession;
 import org.fusesource.jansi.Ansi;
 import org.osgi.service.subsystem.Subsystem;
+
+import com.peergreen.tree.Node;
+import com.peergreen.tree.NodeAdapter;
+import com.peergreen.tree.NodeVisitor;
 
 /**
  * List the Subsystems.

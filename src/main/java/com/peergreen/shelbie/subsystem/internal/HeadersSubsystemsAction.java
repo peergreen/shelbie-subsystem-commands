@@ -15,6 +15,9 @@
 
 package com.peergreen.shelbie.subsystem.internal;
 
+import java.util.Locale;
+import java.util.Map;
+
 import org.apache.felix.gogo.commands.Action;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -24,9 +27,6 @@ import org.apache.felix.service.command.CommandSession;
 import org.fusesource.jansi.Ansi;
 import org.osgi.service.subsystem.Subsystem;
 import org.osgi.service.subsystem.SubsystemConstants;
-
-import java.util.Locale;
-import java.util.Map;
 
 /**
  * List the Subsystems.

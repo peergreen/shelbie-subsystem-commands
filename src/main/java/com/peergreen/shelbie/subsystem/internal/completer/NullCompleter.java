@@ -15,11 +15,12 @@
 
 package com.peergreen.shelbie.subsystem.internal.completer;
 
-import jline.console.completer.Completer;
+import java.util.List;
+
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Provides;
 
-import java.util.List;
+import jline.console.completer.Completer;
 
 /**
  * Created by IntelliJ IDEA.
