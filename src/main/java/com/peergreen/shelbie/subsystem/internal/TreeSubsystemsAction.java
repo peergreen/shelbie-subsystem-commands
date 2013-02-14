@@ -28,6 +28,7 @@ import org.osgi.service.subsystem.Subsystem;
 import com.peergreen.tree.Node;
 import com.peergreen.tree.NodeAdapter;
 import com.peergreen.tree.NodeVisitor;
+import com.peergreen.tree.node.LazyNode;
 
 /**
  * List the Subsystems.
@@ -46,10 +47,11 @@ public class TreeSubsystemsAction implements Action {
               description = "Subsystem to be used as root (optional), root Subsystem is used by default")
     private Subsystem subsystem;
 
+    @Override
     public Object execute(final CommandSession session) throws Exception {
 
         Subsystem base = selectBaseSubsystem();
-        Node<Subsystem> root = new Node<Subsystem>(new SubsystemNodeAdapter(), base);
+        Node<Subsystem> root = new LazyNode<Subsystem>(new SubsystemNodeAdapter(), base);
 
         Ansi buffer = Ansi.ansi();
         root.walk(new SubsystemVisitor(buffer, root));
@@ -74,8 +76,8 @@ public class TreeSubsystemsAction implements Action {
     }
 
     private class SubsystemVisitor implements NodeVisitor<Subsystem> {
-        private Ansi buffer;
-        private Node<Subsystem> root;
+        private final Ansi buffer;
+        private final Node<Subsystem> root;
 
         public SubsystemVisitor(Ansi buffer, Node<Subsystem> root) {
             this.buffer = buffer;
